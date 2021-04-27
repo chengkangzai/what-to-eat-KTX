@@ -68,7 +68,7 @@ class LoginRegisterActivity : AppCompatActivity() {
             val response = IdpResponse.fromResultIntent(data)
 
             if (resultCode == Activity.RESULT_OK) {
-                // Successfully signed in
+//                 Successfully signed in
                 val user = FirebaseAuth.getInstance().currentUser
 
                 Toast.makeText(
@@ -86,7 +86,7 @@ class LoginRegisterActivity : AppCompatActivity() {
             }
         }
 
-        FirebaseAuth.getInstance().signOut()
+//        FirebaseAuth.getInstance().signOut()
     }
 
     private fun goToMainActivity() {
@@ -98,7 +98,7 @@ class LoginRegisterActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_tags, R.id.navigation_food, R.id.navigation_more
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

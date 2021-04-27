@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">What to Eat !? — Kotlin Version</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_tags">Tags</string>
+    <string name="title_dashboard">Food</string>
+    <string name="title_more">More</string>
 
     <string name="author">chengkangzai </string>
     <string name="login_register">Login / Register</string>
     <string name="about_this_app">About this app</string>
+    <string name="test">TEST</string>
 </resources>

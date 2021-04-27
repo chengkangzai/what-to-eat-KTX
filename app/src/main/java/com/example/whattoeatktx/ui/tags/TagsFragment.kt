@@ -1,4 +1,4 @@
-package com.example.whattoeatktx.ui.home
+package com.example.whattoeatktx.ui.tags
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,12 +10,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.whattoeatktx.R
-import com.example.whattoeatktx.service.FoodService
-import com.example.whattoeatktx.service.UserService
 
-class HomeFragment : Fragment() {
+class TagsFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var tagsViewModel: TagsViewModel
 
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
@@ -23,18 +21,17 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
+        tagsViewModel =
+            ViewModelProvider(this).get(TagsViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_tags, container, false)
         val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, {
+        tagsViewModel.text.observe(viewLifecycleOwner, {
             textView.text = it
         })
 
-        root.findViewById<TextView>(R.id.TxtWelcome).text =
-            UserService().isLoggedIn().toString() + "Stupid "
+//        FoodService().getFood()
+//        root.findViewById<TextView>(R.id.TxtWelcome).text =
         root.findViewById<Button>(R.id.btnTEST).setOnClickListener {
-            FoodService().getFood()
 //            Toast.makeText(this.context, result, Toast.LENGTH_LONG).show()
         }
         return root
