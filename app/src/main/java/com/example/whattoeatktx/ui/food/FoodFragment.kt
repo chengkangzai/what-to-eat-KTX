@@ -22,10 +22,10 @@ class FoodFragment : Fragment() {
         foodViewModel =
                 ViewModelProvider(this).get(FoodViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_food, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        foodViewModel.text.observe(viewLifecycleOwner, {
-            textView.text = it
-        })
+//        val textView: TextView = root.findViewById(R.id.text_dashboard)
+//        foodViewModel.text.observe(viewLifecycleOwner, {
+//            textView.text = it
+//        })
         return root
     }
 }

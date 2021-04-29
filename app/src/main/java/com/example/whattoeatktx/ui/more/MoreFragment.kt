@@ -22,10 +22,10 @@ class MoreFragment : Fragment() {
         moreViewModel =
                 ViewModelProvider(this).get(MoreViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_more, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
-        moreViewModel.text.observe(viewLifecycleOwner, {
-            textView.text = it
-        })
+//        val textView: TextView = root.findViewById(R.id.text_notifications)
+//        moreViewModel.text.observe(viewLifecycleOwner, {
+//            textView.text = it
+//        })
         return root
     }
 }

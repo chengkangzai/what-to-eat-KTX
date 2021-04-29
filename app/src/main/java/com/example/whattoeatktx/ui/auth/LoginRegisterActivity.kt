@@ -7,21 +7,16 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import com.example.whattoeatktx.MyBaseActivity
 import com.example.whattoeatktx.R
 import com.example.whattoeatktx.service.UserService
 import com.example.whattoeatktx.service.VersionService
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 
 
-class LoginRegisterActivity : AppCompatActivity() {
+class LoginRegisterActivity : MyBaseActivity() {
     /**
      * https://www.javaer101.com/en/article/14424967.html
      * RC_SIGN in is the request code you will assign for starting the new activity. this can be any number
@@ -32,7 +27,7 @@ class LoginRegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login_register)
 
         if (UserService().isLoggedIn()) {
-            this.goToMainActivity()
+            super.goToMain()
             finish()
         }
 
@@ -77,7 +72,7 @@ class LoginRegisterActivity : AppCompatActivity() {
                     Toast.LENGTH_LONG
                 ).show()
 
-                this.goToMainActivity()
+                super.goToMain();
             } else {
                 Toast.makeText(baseContext, "LOL Sth wrong", Toast.LENGTH_LONG).show()
                 if (response != null) {
@@ -85,25 +80,8 @@ class LoginRegisterActivity : AppCompatActivity() {
                 }
             }
         }
-
-//        FirebaseAuth.getInstance().signOut()
     }
 
-    private fun goToMainActivity() {
-        setContentView(R.layout.activity_main)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
-
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_tags, R.id.navigation_food, R.id.navigation_more
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
-    }
 
     private fun showAbout() {
         val alert: AlertDialog.Builder = AlertDialog.Builder(this)
