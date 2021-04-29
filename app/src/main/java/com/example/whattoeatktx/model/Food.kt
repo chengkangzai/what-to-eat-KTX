@@ -10,4 +10,11 @@ class Food(
     tags: List<String>
 ) {
 
+    private val id: String = "";
+    private val food: String = "";
+    private val userID: String = "";
+
+    override fun toString(): String {
+        return this.id + ", " + this.food + ", " + this.userID
+    }
 }
