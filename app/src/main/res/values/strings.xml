@@ -1,10 +1,37 @@
 <resources>
     <string name="app_name">What to Eat !? — Kotlin Version</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_tags">Tags</string>
+    <string name="title_dashboard">Food</string>
+    <string name="title_more">More</string>
 
     <string name="author">chengkangzai </string>
     <string name="login_register">Login / Register</string>
     <string name="about_this_app">About this app</string>
+    <string name="test">TEST</string>
+    <string name="find">Find !</string>
+    <string name="result">result</string>
+
+    <string name="welcome">Welcome</string>
+    <string name="add">Adds</string>
+    <string name="type_in_a_tag_for_food">Type in a tag for food</string>
+    <string name="type_in_your_favourite_food">Type in your favourite Food</string>
+    <string name="privacy_notice">Privacy Notice</string>
+    <string name="log_out">Log Out</string>
+    <string name="make_feedback">Make Feedback</string>
+    <string name="add_to_collection">Add to Collection</string>
+
+    <string-array name="sections">
+        <item >Pro Constructive</item>
+        <item >Con Constructive</item>
+        <item >1st Speaker Cross</item>
+        <item >Pro Rebbutal</item>
+        <item >Con Rebuttal</item>
+        <item >2nd Speaker Cross</item>
+        <item >Pro Summary</item>
+        <item >Con Summary</item>
+        <item >Grand Cross</item>
+        <item >Pro Final Focus</item>
+        <item >Con Final Focus</item>
+    </string-array>
 </resources>

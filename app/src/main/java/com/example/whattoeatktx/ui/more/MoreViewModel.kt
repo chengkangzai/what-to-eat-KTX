@@ -1,13 +1,13 @@
-package com.example.whattoeatktx.ui.notifications
+package com.example.whattoeatktx.ui.more
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class NotificationsViewModel : ViewModel() {
+class MoreViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
+        value = "This is More Fragment"
     }
     val text: LiveData<String> = _text
 }
