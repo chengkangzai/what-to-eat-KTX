@@ -22,16 +22,40 @@
     <string name="add_to_collection">Add to Collection</string>
 
     <string-array name="sections">
-        <item >Pro Constructive</item>
-        <item >Con Constructive</item>
-        <item >1st Speaker Cross</item>
-        <item >Pro Rebbutal</item>
-        <item >Con Rebuttal</item>
-        <item >2nd Speaker Cross</item>
-        <item >Pro Summary</item>
-        <item >Con Summary</item>
-        <item >Grand Cross</item>
-        <item >Pro Final Focus</item>
-        <item >Con Final Focus</item>
+        <item>Pro Constructive</item>
+        <item>Con Constructive</item>
+        <item>1st Speaker Cross</item>
     </string-array>
+
+    <string name="about_string">%1$s v %2$s \nBuild by %3$s (https://github.com/chengkangzai)"</string>
+    <string name="lol_sth_wrong">LOL Sth wrong</string>
+    <string name="error">ERROR !</string>
+    <string name="title_activity_privacy_notice">PrivacyNoticeActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="your_food">Your Food</string>
+    <string name="OK">OK</string>
+    <string name="welcome_login">Welcome ! %1$s ! You are logged in</string>
+    <string name="here_is_what_you_should_eat">Here is what you should eat !</string>
+    <string name="k_thanks">K thanks</string>
+    <string name="validation_failed">Validation Failed</string>
+    <string name="Please_enter_Food_that_you_wanted_to_add">\"Please enter Food that you wanted to add \"</string>
+    <string name="edit_food">Edit Food : %1$s</string>
+    <string name="please_enter_new_food_name">Please enter new food name</string>
+    <string name="cancel">Cancel</string>
+    <string name="are_you_sure">Are you sure ?</string>
+    <string name="delete_">Delete : %1$s</string>
+    <string name="YES">Yes</string>
+    <string name="added_updated_on">⏱⏱ Added/Updated on %1$s %2$s</string>
+    <string name="food_">🍕 Food : </string>
+    <string name="please_enter_your_feedback">Please enter your Feedback</string>
+    <string name="DONE">DONE</string>
+    <string name="food_name">Food name</string>
+    <string name="timestamp">Timestamp</string>
+    <string name="operation">Operation</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
 </resources>

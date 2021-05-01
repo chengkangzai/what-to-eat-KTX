@@ -10,11 +10,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WhatToEatKTX">
+        <activity android:name=".PrivacyNoticeActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".ui.food.ViewFoodActivity"
+            android:label="ViewFoodActivity"
+            android:parentActivityName=".MainActivity" />
+
         <service
             android:name=".service.VersionService"
             android:enabled="true"
             android:exported="true"
-            tools:ignore="Instantiatable"></service>
+            tools:ignore="Instantiatable" />
 
         <activity android:name=".ui.auth.LoginRegisterActivity" />
         <activity

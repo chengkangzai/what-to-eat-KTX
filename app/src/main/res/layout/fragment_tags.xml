@@ -7,7 +7,6 @@
     tools:context=".ui.tags.TagsFragment">
 
     <Button
-        android:id="@+id/btn_food_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -15,10 +14,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_first_name" />
+        app:layout_constraintTop_toBottomOf="@+id/til_tags" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_first_name"
+        android:id="@+id/til_tags"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,30 +26,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+
 
         <EditText
-            android:id="@+id/input_Tags"
+            android:id="@+id/input_tags"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/type_in_a_tag_for_food"
-            android:inputType="text"
-            android:importantForAutofill="no" />
+            android:importantForAutofill="no"
+            android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-<!--    https://stackoverflow.com/questions/13281197/android-how-to-create-clickable-listview-->
-    <ListView
-        android:id="@+id/list_tags"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_food_add"
-        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

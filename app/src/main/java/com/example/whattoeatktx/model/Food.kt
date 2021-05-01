@@ -1,18 +1,24 @@
 package com.example.whattoeatktx.model
 
 import com.google.firebase.Timestamp
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneId
+
+
+fun Timestamp.toLocalDateTime(zone: ZoneId = ZoneId.systemDefault()): LocalDateTime =
+    LocalDateTime.ofInstant(Instant.ofEpochMilli(seconds * 1000 + nanoseconds / 1000000), zone)
+
+fun LocalDateTime.toTimestamp() = Timestamp(atZone(ZoneId.systemDefault()).toEpochSecond(), nano)
+
 
 class Food(
-    id: String,
-    food: String,
-    userID: String,
-    timestamp: Timestamp,
-    tags: List<String>
+    val id: String,
+    val food: String,
+    val userID: String?,
+    val timestamp: HashMap<*, *>?,
+    val tags: List<String>?
 ) {
-
-    private val id: String = "";
-    private val food: String = "";
-    private val userID: String = "";
 
     override fun toString(): String {
         return this.id + ", " + this.food + ", " + this.userID

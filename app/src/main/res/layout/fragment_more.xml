@@ -7,7 +7,7 @@
     tools:context=".ui.more.MoreFragment">
 
     <Button
-        android:id="@+id/btn_more_makeFeedback"
+        android:id="@+id/morePage_btnMakeFeedback"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_more_Logout"
+        android:id="@+id/morePage_btnLogout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
@@ -34,10 +34,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_more_makeFeedback" />
+        app:layout_constraintTop_toBottomOf="@+id/morePage_btnMakeFeedback" />
 
     <Button
-        android:id="@+id/btn_more_About"
+        android:id="@+id/morePage_btnAbout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
@@ -49,10 +49,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_more_Logout" />
+        app:layout_constraintTop_toBottomOf="@+id/morePage_btnLogout" />
 
     <Button
-        android:id="@+id/btn_more_Privacy_Notice"
+        android:id="@+id/morePage_btnPrivacyNotice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
@@ -64,6 +64,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_more_About" />
+        app:layout_constraintTop_toBottomOf="@+id/morePage_btnAbout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
