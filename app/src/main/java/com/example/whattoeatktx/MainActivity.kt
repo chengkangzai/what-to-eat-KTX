@@ -10,14 +10,14 @@ class MainActivity : MyBaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        super.goToMain()
 
         if (UserService().isNotLoggedIn()) {
             intent = Intent(this, LoginRegisterActivity::class.java)
             startActivity(intent)
-            finish()
+            return
         }
 
+        super.goToMain()
     }
 
 

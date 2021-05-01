@@ -18,5 +18,9 @@
         <item name="colorPrimary">@color/success</item>
     </style>
 
+    <style name="DangerButton" parent="Widget.MaterialComponents.Button">
+        <item name="colorPrimary">@color/danger</item>
+    </style>
+
 
 </resources>

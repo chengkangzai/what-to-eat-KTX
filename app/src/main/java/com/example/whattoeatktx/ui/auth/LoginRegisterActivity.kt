@@ -10,7 +10,6 @@ import android.widget.Toast
 import com.example.whattoeatktx.MyBaseActivity
 import com.example.whattoeatktx.R
 import com.example.whattoeatktx.service.UserService
-import com.example.whattoeatktx.service.VersionService
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
@@ -67,16 +66,16 @@ class LoginRegisterActivity : MyBaseActivity() {
                 val user = FirebaseAuth.getInstance().currentUser
 
                 Toast.makeText(
-                    baseContext,
-                    "Welcome ! ${user!!.displayName} ! You are logged in",
+                    this,
+                    String.format(getString(R.string.welcome_login), user!!.displayName),
                     Toast.LENGTH_LONG
                 ).show()
 
-                super.goToMain();
+                super.goToMain()
             } else {
-                Toast.makeText(baseContext, "LOL Sth wrong", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.lol_sth_wrong), Toast.LENGTH_LONG).show()
                 if (response != null) {
-                    Log.e("ERROR !", response.error.toString())
+                    Log.e(getString(R.string.error), response.error.toString())
                 }
             }
         }
@@ -84,13 +83,18 @@ class LoginRegisterActivity : MyBaseActivity() {
 
 
     private fun showAbout() {
-        val alert: AlertDialog.Builder = AlertDialog.Builder(this)
-        alert.setTitle("Do you want to logout?")
-        alert.setPositiveButton("Ok") { dialog, _ ->
-            dialog.dismiss()
-        }
-        alert.setMessage(VersionService().about())
-        alert.show()
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.about_this_app))
+            .setPositiveButton(getString(R.string.OK)) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setMessage(
+                String.format(
+                    resources.getString(R.string.about_string),
+                    resources.getString(R.string.author)
+                )
+            )
+            .show()
     }
 
 }
