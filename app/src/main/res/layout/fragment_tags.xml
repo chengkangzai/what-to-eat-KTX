@@ -7,10 +7,11 @@
     tools:context=".ui.tags.TagsFragment">
 
     <Button
+        android:id="@+id/tags_addBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/add"
+        android:text="@string/add_to_collection"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +30,7 @@
 
 
         <EditText
-            android:id="@+id/input_tags"
+            android:id="@+id/tags_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/type_in_a_tag_for_food"
@@ -38,5 +39,26 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
+    <TextView
+        android:id="@+id/tags_yourTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/your_tag"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tags_addBtn" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tags_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:flow_horizontalBias="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tags_yourTag" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

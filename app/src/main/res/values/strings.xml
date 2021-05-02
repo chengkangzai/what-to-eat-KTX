@@ -58,4 +58,8 @@
     <string name="operation">Operation</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="tag_name">Tag Name</string>
+    <string name="your_tag">Your Tags</string>
+    <string name="please_enter_the_tag_name_that_you_want_to_add">Please enter the Tag name that you want to add</string>
+    <string name="no_extra_info">No extra info</string>
 </resources>

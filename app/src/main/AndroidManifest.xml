@@ -10,8 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WhatToEatKTX">
-        <activity android:name=".PrivacyNoticeActivity"
+        <activity android:name=".ui.tags.ViewTagActivity"
             android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".PrivacyNoticeActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ui.food.ViewFoodActivity"
             android:label="ViewFoodActivity"
