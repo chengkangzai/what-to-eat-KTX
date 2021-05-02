@@ -19,7 +19,7 @@ class FoodAdapter(var context: Context, var string: Array<String>, var food: Mut
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
         val inflater = LayoutInflater.from(context)
-        val view = inflater.inflate(R.layout.food_row, parent, false)
+        val view = inflater.inflate(R.layout.row_food, parent, false)
         return FoodViewHolder(view)
     }
 
@@ -49,6 +49,6 @@ class FoodAdapter(var context: Context, var string: Array<String>, var food: Mut
     class FoodViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val myText: TextView = itemView.findViewById(R.id.myText1)
         val myImageView: ImageView = itemView.findViewById(R.id.myImageView)
-        val mainLayout: ConstraintLayout = itemView.findViewById(R.id.food_row)
+        val mainLayout: ConstraintLayout = itemView.findViewById(R.id.row_food)
     }
 }

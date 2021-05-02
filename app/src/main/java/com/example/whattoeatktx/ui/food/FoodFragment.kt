@@ -106,6 +106,8 @@ class FoodFragment : Fragment() {
     private fun fetch() {
         docRef.get()
             .addOnSuccessListener { documents ->
+                this.s1 = mutableListOf()
+                this.foods = mutableListOf()
                 for (document in documents) {
 //                    Log.d("DEBUGGGG", "${document.data["food"]} => ${document.data["timestamp"]}")
                     s1.add(document.data["food"] as String)
@@ -119,7 +121,6 @@ class FoodFragment : Fragment() {
     }
 
     private fun setupFoods(document: QueryDocumentSnapshot) {
-        @Suppress("UNCHECKED_CAST")
         foods.add(
             Food(
                 document.id,
@@ -137,8 +138,7 @@ class FoodFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     private fun setUpRecyclerView() {
         val recyclerView = root.findViewById<RecyclerView>(R.id.list_foods)
-        val foodAdapter =
-            FoodAdapter(root.context, s1.take(3).toTypedArray(), foods)
+        val foodAdapter = FoodAdapter(root.context, s1.take(3).toTypedArray(), foods)
         recyclerView.adapter = foodAdapter
         recyclerView.layoutManager = LinearLayoutManager(root.context)
 

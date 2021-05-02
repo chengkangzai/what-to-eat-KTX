@@ -10,12 +10,11 @@
         android:id="@+id/btn_food_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="24dp"
         android:text="@string/add_to_collection"
         app:layout_constraintBottom_toTopOf="@+id/list_foods"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnFindIt2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/til_first_name" />
 
@@ -23,12 +22,12 @@
         android:id="@+id/btnFindIt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="24dp"
         android:text="@string/find"
         android:theme="@style/SuccessButton"
         app:layout_constraintBottom_toTopOf="@+id/list_foods"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_food_add"
         app:layout_constraintTop_toBottomOf="@+id/til_first_name" />
 
@@ -65,15 +64,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_foods"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:maxHeight="200dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/food_food_title" />
 
     <TextView
         android:id="@+id/food_food_title"
@@ -85,5 +75,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_food_add" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_foods"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:maxHeight="200dp"
+        app:flow_horizontalBias="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/food_food_title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

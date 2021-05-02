@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
+import com.bumptech.glide.annotation.GlideModule
 import com.example.whattoeatktx.MyBaseActivity
 import com.example.whattoeatktx.R
 import com.example.whattoeatktx.service.FirebaseHelper
@@ -17,7 +18,7 @@ import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
-
+@GlideModule
 class ViewFoodActivity : MyBaseActivity() {
 
     private lateinit var foodName: String
@@ -36,6 +37,7 @@ class ViewFoodActivity : MyBaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_food)
+
         this.imageView = findViewById(R.id.viewFood_foodImage)
         this.foodNameTextView = findViewById(R.id.viewFood_txtFoodName)
         this.timestampTextView = findViewById(R.id.viewFood_txtTimestamp)
@@ -52,7 +54,7 @@ class ViewFoodActivity : MyBaseActivity() {
 
         val input = EditText(this)
         input.background = null
-        input.setText(foodName)
+        input.setText(this.foodName)
 
         val textInputLayout = TextInputLayout(this)
         textInputLayout.setPadding(25, 0, 25, 0)
@@ -60,7 +62,7 @@ class ViewFoodActivity : MyBaseActivity() {
 
 
         AlertDialog.Builder(this)
-            .setTitle(String.format(getString(R.string.edit_food), foodName))
+            .setTitle(String.format(getString(R.string.edit_food), this.foodName))
             .setView(textInputLayout)
             .setMessage(getString(R.string.please_enter_new_food_name))
             .setPositiveButton(getString(R.string.OK)) { _, _ ->
@@ -80,10 +82,10 @@ class ViewFoodActivity : MyBaseActivity() {
 
     private fun deleteFood() {
         AlertDialog.Builder(this)
-            .setTitle(String.format(getString(R.string.delete_), foodName))
+            .setTitle(String.format(getString(R.string.delete_), this.foodName))
             .setMessage(getString(R.string.are_you_sure))
             .setPositiveButton(getString(R.string.YES)) { _, _ ->
-                docRef.document(foodId).delete()
+                this.docRef.document(this.foodId).delete()
                 super.goToMain()
             }
             .setNegativeButton(getString(R.string.cancel)) { dialog, _ -> dialog.cancel() }
@@ -94,12 +96,12 @@ class ViewFoodActivity : MyBaseActivity() {
         if (intent.hasExtra("foodName") && intent.hasExtra("timestamp")
             && intent.hasExtra("imgSrc") && intent.hasExtra("foodId")
         ) {
-            this.foodName = intent.extras?.getString("foodName").toString()
-            this.timestamp = intent.extras?.get("timestamp") as HashMap<*, *>
-            this.imageSrc = intent.extras?.getString("imgSrc").toString()
-            this.foodId = intent.extras?.getString("foodId").toString()
+            this.foodName = intent.extras!!.getString("foodName").toString()
+            this.timestamp = intent.extras!!.get("timestamp") as HashMap<*, *>
+            this.imageSrc = intent.extras!!.getString("imgSrc").toString()
+            this.foodId = intent.extras!!.getString("foodId").toString()
         } else {
-            Toast.makeText(this, "No extra info", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.no_extra_info), Toast.LENGTH_LONG).show()
         }
 
     }

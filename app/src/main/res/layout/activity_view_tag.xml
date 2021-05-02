@@ -4,64 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.food.ViewFoodActivity">
+    tools:context=".ui.tags.ViewTagActivity">
 
     <ImageView
-        android:id="@+id/viewFood_foodImage"
+        android:id="@+id/viewTag_img"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="100dp"
         android:importantForAccessibility="no"
-        android:src="@drawable/drawable__icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/viewFood_txtFoodName"
+        android:id="@+id/viewTag_tagName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="@string/food_name"
+        android:text="@string/tag_name"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewFood_foodImage" />
+        app:layout_constraintTop_toBottomOf="@+id/viewTag_img" />
 
     <TextView
-        android:id="@+id/viewFood_txtTimestamp"
+        android:id="@+id/viewTag_operation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="@string/timestamp"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewFood_txtFoodName" />
-
-    <TextView
-        android:id="@+id/viewFood_btnOperation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:text="@string/operation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewFood_txtTimestamp" />
+        app:layout_constraintTop_toBottomOf="@+id/viewTag_tagName" />
 
     <Button
-        android:id="@+id/viewFood_btnEdit"
+        android:id="@+id/viewTag_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
         android:text="@string/edit"
-        app:layout_constraintEnd_toStartOf="@+id/viewFood_btnDelete"
+        app:layout_constraintEnd_toStartOf="@+id/viewTag_delete"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewFood_btnOperation" />
+        app:layout_constraintTop_toBottomOf="@+id/viewTag_operation" />
 
     <Button
-        android:id="@+id/viewFood_btnDelete"
+        android:id="@+id/viewTag_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -69,7 +58,6 @@
         android:text="@string/delete"
         android:theme="@style/DangerButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/viewFood_btnEdit"
-        app:layout_constraintTop_toBottomOf="@+id/viewFood_btnOperation" />
-
+        app:layout_constraintStart_toEndOf="@+id/viewTag_edit"
+        app:layout_constraintTop_toBottomOf="@+id/viewTag_operation" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,9 +18,4 @@ class Food(
     val userID: String?,
     val timestamp: HashMap<*, *>?,
     val tags: List<String>?
-) {
-
-    override fun toString(): String {
-        return this.id + ", " + this.food + ", " + this.userID
-    }
-}
+)

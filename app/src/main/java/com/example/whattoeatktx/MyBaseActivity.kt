@@ -23,7 +23,6 @@ open class MyBaseActivity : AppCompatActivity(){
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
         navController.navigate(R.id.navigation_food)
     }
 }
