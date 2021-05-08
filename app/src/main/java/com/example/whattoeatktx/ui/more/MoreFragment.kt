@@ -54,7 +54,7 @@ class MoreFragment : Fragment() {
     }
 
     private fun handleFeedback() {
-        var holder:String
+        var holder: String
 
         val input = EditText(this.root.context)
         input.background = null

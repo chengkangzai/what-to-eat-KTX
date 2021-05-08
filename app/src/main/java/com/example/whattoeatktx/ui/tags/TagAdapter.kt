@@ -35,7 +35,7 @@ class TagAdapter(var context: Context, var string: Array<String>, var tags: Muta
             val intent = Intent(context, ViewTagActivity::class.java)
             intent.putExtra("tagName", tags[position].name)
             intent.putExtra("tagId", tags[position].id)
-            intent.putExtra("imageSrc",imgSrc)
+            intent.putExtra("imageSrc", imgSrc)
             context.startActivity(intent)
         }
     }

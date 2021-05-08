@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="success">#22A154</color>
     <color name="danger">#EB445A</color>
+    <color name="green">#4CAF50</color>
+    <color name="light_yellow">#F0F4C3</color>
 </resources>

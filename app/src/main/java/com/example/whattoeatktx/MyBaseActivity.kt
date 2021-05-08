@@ -7,7 +7,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-open class MyBaseActivity : AppCompatActivity(){
+open class MyBaseActivity : AppCompatActivity() {
 
     fun goToMain() {
         val activityMain = R.layout.activity_main

@@ -46,7 +46,7 @@ class FoodFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         this.root = inflater.inflate(R.layout.fragment_food, container, false)
 
         this.fetch()
@@ -71,8 +71,6 @@ class FoodFragment : Fragment() {
             .setPositiveButton(getString(R.string.k_thanks)) { di, _ -> di.dismiss() }
             .create()
             .show()
-
-
     }
 
     private fun addFood() {
@@ -96,8 +94,8 @@ class FoodFragment : Fragment() {
                 "timestamp" to FirebaseHelper().getTimestamp(),
             ), SetOptions.merge()
         ).addOnCompleteListener {
-            Toast.makeText(root.context, it.toString(), Toast.LENGTH_LONG).show()
-
+            Toast.makeText(root.context, getString(R.string.DONE), Toast.LENGTH_LONG).show()
+            root.findViewById<EditText>(R.id.input_food).setText("")
         }
         this.fetch()
     }
@@ -109,7 +107,6 @@ class FoodFragment : Fragment() {
                 this.s1 = mutableListOf()
                 this.foods = mutableListOf()
                 for (document in documents) {
-//                    Log.d("DEBUGGGG", "${document.data["food"]} => ${document.data["timestamp"]}")
                     s1.add(document.data["food"] as String)
                     setupFoods(document)
                 }
@@ -127,9 +124,10 @@ class FoodFragment : Fragment() {
                 document.data["food"] as String,
                 document.data["userID"] as? String,
                 document.data["timestamp"] as? HashMap<*, *>,
-                listOf(document.data["tags"]) as? List<String>
+                document.data["tags"] as? ArrayList<String>
             )
         )
+
     }
 
     /**

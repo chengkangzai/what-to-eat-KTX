@@ -2,6 +2,7 @@ package com.example.whattoeatktx.ui.food
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
@@ -25,6 +26,7 @@ class ViewFoodActivity : MyBaseActivity() {
     private lateinit var foodId: String
     private lateinit var timestamp: HashMap<*, *>
     private lateinit var imageSrc: String
+    private var tags: ArrayList<String>? = null
 
     private lateinit var imageView: ImageView
     private lateinit var foodNameTextView: TextView
@@ -33,6 +35,8 @@ class ViewFoodActivity : MyBaseActivity() {
     private val uid: String = Firebase.auth.currentUser!!.uid
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val docRef = db.collection("user/${uid}/food")
+    private val tagDocRef = db.collection("user/${uid}/tags")
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,9 +48,91 @@ class ViewFoodActivity : MyBaseActivity() {
 
         this.getData()
         this.setData()
+        this.setTags()
 
         findViewById<Button>(R.id.viewFood_btnEdit).setOnClickListener { this.editFood() }
         findViewById<Button>(R.id.viewFood_btnDelete).setOnClickListener { this.deleteFood() }
+    }
+
+    private fun setTags() {
+        val ll_main = findViewById<LinearLayout>(R.id.ll_main_layout)
+        ll_main.removeAllViews()
+
+        val green = resources.getColor(R.color.green)
+        val lightYellow = resources.getColor(R.color.light_yellow)
+        val white = resources.getColor(R.color.white)
+        val black = resources.getColor(R.color.black)
+        tagDocRef
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    val button = com.google.android.material.button.MaterialButton(this)
+                    // setting layout_width and layout_height using layout parameters
+                    button.layoutParams = LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT
+                    )
+                    var hit = false
+                    if (this.tags != null) {
+                        for (tag in this.tags!!) {
+                            val tagID = tag.split("user/${uid}/tags/")[1]
+                            if (document.id == tagID) {
+                                hit = true
+                                break
+                            }
+                        }
+                    }
+
+                    if (hit) {
+                        button.setBackgroundColor(green)
+                        button.setTextColor(white)
+                        button.setOnClickListener { this.detachTag(document.id) }
+                    } else {
+                        button.setBackgroundColor(lightYellow)
+                        button.setTextColor(black)
+                        button.setOnClickListener { this.attachTag(document.id) }
+                    }
+
+                    button.text = document.data["name"] as String
+                    // add Button to LinearLayout
+                    ll_main.addView(button)
+                }
+            }
+
+    }
+
+    private fun attachTag(tagID: String) {
+        if (this.tags == null) {
+            //create a list
+            val temp = listOf("user/${uid}/tags/${tagID}")
+            this.docRef.document(this.foodId)
+                .set(
+                    hashMapOf(
+                        "tags" to temp
+                    ), SetOptions.merge()
+                )
+        } else {
+            //add a item
+            this.tags!!.add("user/${uid}/tags/${tagID}")
+            this.docRef.document(this.foodId)
+                .set(
+                    hashMapOf(
+                        "tags" to this.tags
+                    ), SetOptions.merge()
+                )
+        }
+        this.setTags()
+    }
+
+    private fun detachTag(tagID: String) {
+        this.tags!!.remove("user/${uid}/tags/${tagID}")
+        this.docRef.document(this.foodId)
+            .set(
+                hashMapOf(
+                    "tags" to this.tags
+                ), SetOptions.merge()
+            )
+        this.setTags()
     }
 
     private fun editFood() {
@@ -59,7 +145,6 @@ class ViewFoodActivity : MyBaseActivity() {
         val textInputLayout = TextInputLayout(this)
         textInputLayout.setPadding(25, 0, 25, 0)
         textInputLayout.addView(input)
-
 
         AlertDialog.Builder(this)
             .setTitle(String.format(getString(R.string.edit_food), this.foodName))
@@ -100,6 +185,7 @@ class ViewFoodActivity : MyBaseActivity() {
             this.timestamp = intent.extras!!.get("timestamp") as HashMap<*, *>
             this.imageSrc = intent.extras!!.getString("imgSrc").toString()
             this.foodId = intent.extras!!.getString("foodId").toString()
+            this.tags = intent.extras!!.getStringArrayList("tags")
         } else {
             Toast.makeText(this, getString(R.string.no_extra_info), Toast.LENGTH_LONG).show()
         }
