@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.example.whattoeatktx.MyBaseActivity
 import com.example.whattoeatktx.R
 import com.example.whattoeatktx.service.UserService
+import com.example.whattoeatktx.service.VersionService
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
@@ -85,12 +86,12 @@ class LoginRegisterActivity : MyBaseActivity() {
     private fun showAbout() {
         AlertDialog.Builder(this)
             .setTitle(getString(R.string.about_this_app))
-            .setPositiveButton(getString(R.string.OK)) { dialog, _ ->
-                dialog.dismiss()
-            }
+            .setPositiveButton(getString(R.string.OK)) { dialog, _ -> dialog.dismiss() }
             .setMessage(
                 String.format(
                     resources.getString(R.string.about_string),
+                    resources.getString(R.string.app_name),
+                    VersionService().version,
                     resources.getString(R.string.author)
                 )
             )
