@@ -18,7 +18,16 @@
         <item name="colorPrimary">@color/success</item>
     </style>
 
+    <style name="SuccessOutlineButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="colorPrimary">@color/success</item>
+        <item name="colorOnPrimary">@color/black</item>
+    </style>
+
     <style name="DangerButton" parent="Widget.MaterialComponents.Button">
+        <item name="colorPrimary">@color/danger</item>
+    </style>
+
+    <style name="DangerOutlineButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="colorPrimary">@color/danger</item>
     </style>
 

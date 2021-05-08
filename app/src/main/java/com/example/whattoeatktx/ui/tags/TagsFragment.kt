@@ -71,6 +71,7 @@ class TagsFragment : Fragment() {
         ).addOnCompleteListener {
             Toast.makeText(root.context, getString(R.string.DONE), Toast.LENGTH_LONG).show()
         }
+        root.findViewById<EditText>(R.id.tags_input).setText("")
         this.fetch()
     }
 
@@ -92,7 +93,6 @@ class TagsFragment : Fragment() {
 
     private fun setUpRecyclerView() {
         val recyclerView = root.findViewById<RecyclerView>(R.id.tags_list)
-        Log.d("SIZEEEE", s1.size.toString())
         val tagAdapter = TagAdapter(root.context, s1.toTypedArray(), tags)
         recyclerView.adapter = tagAdapter
         recyclerView.layoutManager = LinearLayoutManager(root.context)

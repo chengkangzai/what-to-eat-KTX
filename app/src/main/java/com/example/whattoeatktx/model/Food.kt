@@ -17,5 +17,5 @@ class Food(
     val food: String,
     val userID: String?,
     val timestamp: HashMap<*, *>?,
-    val tags: List<String>?
+    val tags: ArrayList<String>?
 )

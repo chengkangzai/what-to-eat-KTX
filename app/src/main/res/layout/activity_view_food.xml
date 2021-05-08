@@ -10,7 +10,7 @@
         android:id="@+id/viewFood_foodImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:importantForAccessibility="no"
         android:src="@drawable/drawable__icon"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +21,7 @@
         android:id="@+id/viewFood_txtFoodName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:text="@string/food_name"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +32,7 @@
         android:id="@+id/viewFood_txtTimestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:text="@string/timestamp"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,18 +43,29 @@
         android:id="@+id/viewFood_btnOperation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="15dp"
         android:text="@string/operation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewFood_txtTimestamp" />
+
+    <TextView
+        android:id="@+id/viewFood_btnOperation2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/tag_section"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewFood_btnEdit" />
 
     <Button
         android:id="@+id/viewFood_btnEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="@string/edit"
         app:layout_constraintEnd_toStartOf="@+id/viewFood_btnDelete"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,12 +75,23 @@
         android:id="@+id/viewFood_btnDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="50dp"
         android:text="@string/delete"
         android:theme="@style/DangerButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/viewFood_btnEdit"
         app:layout_constraintTop_toBottomOf="@+id/viewFood_btnOperation" />
+
+    <LinearLayout
+        android:id="@+id/ll_main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewFood_btnOperation2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

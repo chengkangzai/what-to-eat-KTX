@@ -37,6 +37,7 @@ class FoodAdapter(var context: Context, var string: Array<String>, var food: Mut
             intent.putExtra("timestamp", food[position].timestamp)
             intent.putExtra("imgSrc", imgSrc)
             intent.putExtra("foodId", food[position].id)
+            intent.putExtra("tags", food[position].tags)
             context.startActivity(intent)
         }
 
