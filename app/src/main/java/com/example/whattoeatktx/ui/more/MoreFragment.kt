@@ -42,6 +42,7 @@ class MoreFragment : Fragment() {
         this.root.findViewById<Button>(R.id.morePage_btnLogout).setOnClickListener {
             auth.signOut()
             startActivity(Intent(root.context, LoginRegisterActivity::class.java))
+            activity?.finish()
         }
         this.root.findViewById<Button>(R.id.morePage_btnMakeFeedback)
             .setOnClickListener { this.handleFeedback() }
@@ -63,24 +64,32 @@ class MoreFragment : Fragment() {
         textInputLayout.setPadding(25, 0, 25, 0)
         textInputLayout.addView(input)
 
-
         AlertDialog.Builder(this.root.context)
             .setTitle(getString(R.string.make_feedback))
             .setView(textInputLayout)
             .setMessage(getString(R.string.please_enter_your_feedback))
-            .setPositiveButton(getString(R.string.OK)) { _, _ ->
+            .setPositiveButton(getString(R.string.OK)) { dialog, _ ->
                 holder = input.text.toString()
-                val id = FirebaseIDGenerator.generateId()
-                docRef.document(id).set(
-                    hashMapOf(
-                        "feedback" to holder,
-                        "id" to id,
-                        "user" to uid,
-                        "timestamp" to Date()
-                    ),
-                    SetOptions.merge()
-                )
-                Toast.makeText(root.context, getString(R.string.DONE), Toast.LENGTH_LONG).show()
+                if (!holder.isEmpty()) {
+                    val id = FirebaseIDGenerator.generateId()
+                    docRef.document(id).set(
+                        hashMapOf(
+                            "feedback" to holder,
+                            "id" to id,
+                            "user" to uid,
+                            "timestamp" to Date()
+                        ),
+                        SetOptions.merge()
+                    )
+                    Toast.makeText(root.context, getString(R.string.DONE), Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(
+                        root.context,
+                        "Please Do not give empty string",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+                dialog.dismiss()
             }
             .setNegativeButton(getString(R.string.cancel)) { dialog, _ -> dialog.cancel() }
             .show()

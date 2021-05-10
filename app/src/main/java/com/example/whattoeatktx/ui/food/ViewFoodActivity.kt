@@ -24,8 +24,8 @@ class ViewFoodActivity : MyBaseActivity() {
 
     private lateinit var foodName: String
     private lateinit var foodId: String
-    private lateinit var timestamp: HashMap<*, *>
     private lateinit var imageSrc: String
+    private var timestamp: HashMap<*, *>? = null
     private var tags: ArrayList<String>? = null
 
     private lateinit var imageView: ImageView
@@ -182,7 +182,7 @@ class ViewFoodActivity : MyBaseActivity() {
             && intent.hasExtra("imgSrc") && intent.hasExtra("foodId")
         ) {
             this.foodName = intent.extras!!.getString("foodName").toString()
-            this.timestamp = intent.extras!!.get("timestamp") as HashMap<*, *>
+            this.timestamp = intent.extras!!.get("timestamp") as? HashMap<*, *>
             this.imageSrc = intent.extras!!.getString("imgSrc").toString()
             this.foodId = intent.extras!!.getString("foodId").toString()
             this.tags = intent.extras!!.getStringArrayList("tags")
@@ -196,16 +196,17 @@ class ViewFoodActivity : MyBaseActivity() {
     @SuppressLint("SetTextI18n")
     private fun setData() {
         this.foodNameTextView.text = "${getString(R.string.food_)} ${this.foodName}"
-        val odt =
-            LocalDateTime.ofEpochSecond(
-                this.timestamp["seconds"] as Long,
-                0,
+        if (this.timestamp != null) {
+            val odt = LocalDateTime.ofEpochSecond(
+                this.timestamp?.get("seconds") as Long, 0,
                 ZoneOffset.ofHours(8)
             ).format(DateTimeFormatter.ofPattern("dd/MM/yy, hh:mm"))
 
-        val aa = if (odt.split(":")[0] <= "12") "AM" else "PM"
+            val aa = if (odt.split(":")[0] <= "12") "AM" else "PM"
 
-        this.timestampTextView.text = String.format(getString(R.string.added_updated_on), odt, aa)
+            this.timestampTextView.text =
+                String.format(getString(R.string.added_updated_on), odt, aa)
+        }
         Glide.with(this).load(this.imageSrc).into(this.imageView)
     }
 }

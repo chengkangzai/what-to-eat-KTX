@@ -24,12 +24,6 @@ import com.google.firebase.firestore.QueryDocumentSnapshot
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.ktx.Firebase
 
-//https://code.luasoftware.com/tutorials/google-cloud-firestore/understanding-date-in-firestore/
-//fun Timestamp.toLocalDateTime(zone: ZoneId = ZoneId.systemDefault()): LocalDateTime =
-//    LocalDateTime.ofInstant(Instant.ofEpochMilli(seconds * 1000 + nanoseconds / 1000000), zone)
-//
-//fun LocalDateTime.toTimestamp() = Timestamp(atZone(ZoneId.systemDefault()).toEpochSecond(), nano)
-
 @GlideModule
 class FoodFragment : Fragment() {
 
@@ -57,13 +51,17 @@ class FoodFragment : Fragment() {
     }
 
     private fun findFood() {
-        val foodText = root.findViewById<TextView>(R.id.txt_food)
-        var run = true
-        while (run) {
-            foodText.text = foods[(0..this.foods.size).random() - 1].food
-            Thread.sleep(50)
-            run = (0..100).random() == 1
+        if (this.foods.size <= 0) {
+            return AlertDialog.Builder(root.context)
+                .setTitle(getString(R.string.WARNING))
+                .setMessage(getString(R.string.you_do_not_have_any_food))
+                .setPositiveButton(getString(R.string.k_thanks)) { di, _ -> di.dismiss() }
+                .create()
+                .show()
+
         }
+        val foodText = root.findViewById<TextView>(R.id.txt_food)
+        foodText.text = this.foods.shuffled().take(1)[0].food
 
         AlertDialog.Builder(root.context)
             .setTitle(getString(R.string.here_is_what_you_should_eat))

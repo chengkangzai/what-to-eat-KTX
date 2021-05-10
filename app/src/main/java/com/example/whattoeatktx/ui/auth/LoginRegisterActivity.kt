@@ -50,7 +50,7 @@ class LoginRegisterActivity : MyBaseActivity() {
                 .createSignInIntentBuilder()
                 .setAvailableProviders(providers)
                 .setIsSmartLockEnabled(false)
-                .setTheme(R.style.FirebaseUI) //TODO show "Login /Register on action bar"
+                .setTheme(R.style.FirebaseUI)
                 .build(),
             RC_SIGN_IN,
         )

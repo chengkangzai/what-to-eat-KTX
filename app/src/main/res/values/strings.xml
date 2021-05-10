@@ -42,7 +42,7 @@
     <string name="here_is_what_you_should_eat">Here is what you should eat !</string>
     <string name="k_thanks">K thanks</string>
     <string name="validation_failed">Validation Failed</string>
-    <string name="Please_enter_Food_that_you_wanted_to_add">\"Please enter Food that you wanted to add \"</string>
+    <string name="Please_enter_Food_that_you_wanted_to_add">Please enter Food that you wanted to add </string>
     <string name="edit_food">Edit Food : %1$s</string>
     <string name="please_enter_new_food_name">Please enter new food name</string>
     <string name="cancel">Cancel</string>
@@ -63,4 +63,6 @@
     <string name="please_enter_the_tag_name_that_you_want_to_add">Please enter the Tag name that you want to add</string>
     <string name="no_extra_info">No extra info</string>
     <string name="tag_section">Tag section</string>
+    <string name="WARNING">Warning</string>
+    <string name="you_do_not_have_any_food">you do not have any food in collection, please add to proceed</string>
 </resources>
