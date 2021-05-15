@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_tags"
-        android:name="com.example.whattoeatktx.ui.tags.TagsFragment"
+        android:name="com.app.whattoeatktx.ui.tags.TagsFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_tags" />
 
     <fragment
         android:id="@+id/navigation_food"
-        android:name="com.example.whattoeatktx.ui.food.FoodFragment"
+        android:name="com.app.whattoeatktx.ui.food.FoodFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_food" />
 
     <fragment
         android:id="@+id/navigation_more"
-        android:name="com.example.whattoeatktx.ui.more.MoreFragment"
+        android:name="com.app.whattoeatktx.ui.more.MoreFragment"
         android:label="@string/title_more"
         tools:layout="@layout/fragment_more" />
 </navigation>
