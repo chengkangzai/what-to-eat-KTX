@@ -44,6 +44,7 @@
     <string name="validation_failed">Validation Failed</string>
     <string name="Please_enter_Food_that_you_wanted_to_add">Please enter Food that you wanted to add </string>
     <string name="edit_food">Edit Food : %1$s</string>
+    <string name="edit_tag">Edit Tag : %1$s</string>
     <string name="please_enter_new_food_name">Please enter new food name</string>
     <string name="cancel">Cancel</string>
     <string name="are_you_sure">Are you sure ?</string>
@@ -65,4 +66,5 @@
     <string name="tag_section">Tag section</string>
     <string name="WARNING">Warning</string>
     <string name="you_do_not_have_any_food">you do not have any food in collection, please add to proceed</string>
+    <string name="please_do_not_give_empty_string">Please Do not give empty string</string>
 </resources>

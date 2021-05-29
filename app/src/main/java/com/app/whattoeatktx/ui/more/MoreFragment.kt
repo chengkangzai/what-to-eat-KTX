@@ -85,7 +85,7 @@ class MoreFragment : Fragment() {
                 } else {
                     Toast.makeText(
                         root.context,
-                        "Please Do not give empty string",
+                        getString(R.string.please_do_not_give_empty_string),
                         Toast.LENGTH_LONG
                     ).show()
                 }
@@ -96,7 +96,7 @@ class MoreFragment : Fragment() {
     }
 
     private fun showAbout() {
-        android.app.AlertDialog.Builder(root.context)
+        AlertDialog.Builder(root.context)
             .setTitle(getString(R.string.about_this_app))
             .setPositiveButton(getString(R.string.OK)) { dialog, _ ->
                 dialog.dismiss()

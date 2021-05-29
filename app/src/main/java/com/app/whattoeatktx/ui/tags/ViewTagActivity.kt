@@ -66,9 +66,9 @@ class ViewTagActivity : MyBaseActivity() {
         textInputLayout.addView(input)
 
         AlertDialog.Builder(this)
-            .setTitle(String.format(getString(R.string.edit_food), this.tagName))
+            .setTitle(String.format(getString(R.string.edit_tag), this.tagName))
             .setView(textInputLayout)
-            .setMessage(getString(R.string.please_enter_new_food_name))
+            .setMessage("Please enter new tag Name")
             .setPositiveButton(getString(R.string.OK)) { _, _ ->
                 holder = input.text.toString()
                 this.docRef.document(this.tagId).set(
